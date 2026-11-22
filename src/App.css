@@ -1,0 +1,111 @@
+/* --- TES VARIABLES EXISTANTES --- */
+/* Assure-toi d'avoir ces variables dans ton :root (probablement en haut de ton fichier) */
+:root {
+  --accent: #4a90e2;
+  --accent-bg: #f0f7ff;
+  --accent-border: #4a90e2;
+  --text-main: #333;
+  --success: #27ae60;
+  --danger: #e74c3c;
+}
+
+/* --- STYLES POUR LE COMPOSANT COMPTEUR --- */
+
+.container-compteur {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Bouton principal (Afficher / Cacher) */
+  .btn-toggle {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px; /* Reprend ton radius de la ligne 4 */
+    color: var(--accent);
+    background: var(--accent-bg);
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+    margin-bottom: 24px; /* Reprend ton margin de la ligne 9 */
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      border-color: var(--accent-border);
+    }
+    &:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  }
+
+  /* La carte qui contient le résultat et les boutons */
+  .resultat-card {
+    background-color: #ffffff;
+    padding: 30px 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #eee;
+  }
+
+  .resultat-title {
+    font-size: 24px;
+    color: var(--text-main);
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Le grand chiffre du résultat */
+  .resultat-valeur {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 10px 0;
+    transition: color 0.3s ease;
+
+    &.positif { color: var(--success); }
+    &.negatif { color: var(--danger); }
+    &.zero { color: var(--text-main); }
+  }
+
+  /* Groupe de boutons + / - / Init */
+  .buttons-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn-action {
+    padding: 12px 24px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 60px;
+
+    &.btn-plus {
+      background-color: var(--success);
+      color: white;
+      &:hover { background-color: #1e8449; transform: scale(1.05); }
+    }
+
+    &.btn-minus {
+      background-color: var(--danger);
+      color: white;
+      &:hover { background-color: #c0392b; transform: scale(1.05); }
+    }
+
+    &.btn-reset {
+      background-color: #95a5a6;
+      color: white;
+      font-size: 16px;
+      &:hover { background-color: #7f8c8d; transform: scale(1.05); }
+    }
+  }
+}
